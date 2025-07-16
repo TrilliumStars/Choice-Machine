@@ -73,6 +73,7 @@ function setup(mode) {//A function which prepares the game to be played. Trigger
     document.getElementById("resetBtn").style.display = "inline-block";
     document.getElementById("saveBtn").style.display = "inline-block";
     document.getElementById("rescueBtn").style.display = "inline-block";
+    //document.getElementById("list1").style.display = "inline-block";
     renderAllLists();
     updateChoiceButtons();
 
@@ -92,6 +93,8 @@ function game() {//a modified reset() function which should return the game to i
         document.getElementById("choice1").style.display = "none";
         document.getElementById("choice2").style.display = "none";
         document.getElementById("endMessage").innerText = "";
+        document.getElementById("duringMessage").innerText = "Choose 1 to rank:";
+        document.detElementById("errorMessage").innerText = "";
         document.getElementById("successMessage").innerText = "";
         renderAllLists();
     }
@@ -324,9 +327,11 @@ function ShowRescue() {
     document.getElementById("errorMessage").innerText = "";
     document.getElementById("userInput2").style.display = "inline-block";
     document.getElementById("userInputBtn2").style.display = "inline-block";
+    document.getElementById("cancelBtn").style.display = "inline-block";
     return;
 }
 function rescue() {
+    document.getElementById("cancelBtn").style.display = "none";
     let input = document.getElementById("userInput2").value;
     document.getElementById("userInput2").style.display = "none";
     document.getElementById("userInputBtn2").style.display = "none";
@@ -367,10 +372,19 @@ function OpenImport() {
     document.getElementById("errorMessage").innerText = "";
     document.getElementById("userInput").style.display = "inline-block";
     document.getElementById("userInputBtn").style.display = "inline-block";
+    document.getElementById("cancelBtn").style.display = "inline-block";
     return;
+}
+function hideBtn() {
+    document.getElementById("userInput").style.display = "none";
+    document.getElementById("userInputBtn").style.display = "none";
+    document.getElementById("userInput2").style.display = "none";
+    document.getElementById("userInputBtn2").style.display = "none";
+    document.getElementById("cancelBtn").style.display = "none";
 }
 function Import(){
     let input = document.getElementById("userInput").value;
+    document.getElementById("cancelBtn").style.display = "none";
     //console.log(input);
     document.getElementById("userInput").style.display = "none";
     document.getElementById("userInputBtn").style.display = "none";
@@ -499,7 +513,7 @@ function Import(){
     return;
 
 }
-function Export (){
+function Export(){
     let data = 0n;
     let debug;
     let places = [];
@@ -662,6 +676,7 @@ function first_setup() {
     tooltip.style.pointerEvents = "none";
     tooltip.style.display = "none";
     document.body.appendChild(tooltip);
+    //document.getElementById("list1").style.display = "none";
     document.getElementById("userInput").style.display = "none";
     document.getElementById("userInputBtn").style.display = "none";
     document.getElementById("userInput2").style.display = "none";
@@ -673,5 +688,6 @@ function first_setup() {
     document.getElementById("resetBtn").style.display = "none";
     document.getElementById("saveBtn").style.display = "none";
     document.getElementById("rescueBtn").style.display = "none";
+    document.getElementById("cancelBtn").style.display = "none";
     document.getElementById("duringMessage").innerText = "Choose 1 to rank:";
 }
