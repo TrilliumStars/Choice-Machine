@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <!--title>My C++ Project (JS Edition)</!--title-->
+    <title style="color: #FFFFFF;">Favorite Princesses</title>
+    <link rel="icon" type="image/x-icon" href="cabin.ico">
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .column {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .column h2 {
+            text-align: center;
+        }
+
+        .object {
+            padding: 6px 10px;
+            margin: 5px 0;
+            background: #e0e0e0;
+            border-radius: 4px;
+        }
+
+
+        body {
+            /*background-color: #b7ff8b;*/
+            /*background-color: #f17bea;*/
+            background-color: #000000;
+
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="color: #FFFFFF;">Princess Ranking Tool</h1>
+    <h3 id="endMessage" style="text-align: left; color: #35e21a;"></h3>
+    <h4 id="duringMessage" style="text-align: left; color: #5ce1f3;"></h4>
+
+    <div id="main-buttons" style="margin-bottom: 20px;">
+        <button id="princesses" onclick="setup(0)">Princesses</button>
+        <button id="voices" onclick="setup(1)">Voices</button>
+        <button id="endings" onclick="setup(2)">Endings</button>
+    </div>
+
+
+    <div id="choice-buttons" style="margin-bottom: 20px;">
+        <button id="choice1" onclick="handleChoice(0)">Choice 1</button>
+        <button id="choice2" onclick="handleChoice(1)">Choice 2</button>
+    </div>
+    <div id="option-buttons" style="margin-bottom: 20px;">
+        <button id="undoBtn" onclick="handleUndo()">Undo</button>
+        <button id="skipBtn" onclick="updateChoiceButtons()">Skip</button>
+        <button id="rescueBtn" onclick="ShowRescue()">Rescue</button>
+        <button id="resetBtn" onclick="game()">Reset</button>
+        <button id="saveBtn" onclick="Export()">Save</button>
+        <button id="loadBtn" onclick="OpenImport()">Load</button>
+
+    </div>
+
+    <input id="userInput" type="text" placeholder="Paste your save code">
+    <button id="userInputBtn" onclick="Import()">Load</button>
+
+    <input id="userInput2" type="text" placeholder="What Item would you like to rescue?">
+    <button id="userInputBtn2" onclick="rescue()">Rescue</button>
+
+    <div id="errorMessage" style="color: red; font-weight: bold; margin-top: 10px;"></div>
+    <h6 id="successMessage" style="text-align: left; color: #35e21a;"></h6>
+    <h6 id="Estimation" style="text-align: left; color: #CFCFCF;"></h6>
+
+    <h1 id="statusMessage" style="color: #C1C1C1;"> Princess Statuses:</h1>
+    <h3 id="listMessage" style="color: #C1C1C1;"> (Hover to show more info)</h3>
+
+    <div class="grid-container">
+        <div class="column" style="background-color: #C1C1C1">
+            <h2>Finished Rankings</h2>
+            <div id="list3"></div>
+        </div>
+        <div class="column" style="background-color: #C1C1C1">
+            <h2>Current Choices</h2>
+            <div id="list1"></div>
+        </div>
+        <div class="column" style="background-color: #C1C1C1">
+            <h2>Temporarily Eliminated</h2>
+            <div id="list2"></div>
+        </div>
+        <!--<div class="column">
+        <h2>Previous Actions</h2>
+        <div id="list4"></div>
+    </div>-->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
