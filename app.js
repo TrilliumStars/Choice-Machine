@@ -591,7 +591,8 @@ function Export (){
     }
     OPT += str;
     document.getElementById("Estimation").innerText = "Save code:    " + OPT;
-    alert("Here's a save code: \n\n" + OPT + "\n\nCopy it for later use.");
+    navigator.clipboard.writeText(OPT);
+    alert("Here's a save code: \n\n" + OPT + "\n\nIt's been copied to your clipboard for convenience.");
 }
 function list_to_string(lst, base) {
     let y = list_to_int(lst, base);
