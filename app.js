@@ -31,11 +31,11 @@ const ending = [
     "Fight forever with Adversary", "Bow down before the tower", "Free the Nightmare", "Free the Spectre", "Stranger", "Fall down the stairs with the Witch",
     "Locked in the basement by the Witch", "Free the Beast", "Free the Prisoner by waiting", "Free the Prisoner's head",
     "Free the Damsel", "Deconstruct the Damsel", "With Hunted, slay the Eye of the Needle", "Free the Eye of the Needle", "Die at the doormat by the Needle",
-    "Fight the Needle Head-on downstairs", "Free the Fury", "Endure her torture, then slay the Fury", "Endure her torture, then leave the Fury",
+    "Fight the Needle Head-on downstairs", "Free the Fury", "Endure her torture, then slay the Fury", "Endure her torture, then leave the Fury, alone",
     "Slay the Tower, then Slay the Fury", "You didn't hear no bell, and Slayed the Fury", "Unravel the Fury into ribbons", "With Contrarian, scar the apotheosis",
     "With Paranoid, unravel the apotheosis", "Chain yourself to the Apotheosis", "Free the Apotheosis", "Free the Moment of Clarity", "Free the Wraith",
-    "Fall forever with the wraith", "Become one with the Dragon", "Free the Dragon", "Leave the Gentle Dragon in the Basement", "Slay the Razor by blade",
-    "Be shapeless, and let the Razor slay herslef", "Free the Thorn", "Attempt to Slay the Thorn", "Attempt to leave the Thorn", "With the Wild, break your cage",
+    "Fall forever with the wraith", "Become one with the Dragon", "Free the Dragon", "Leave the Gentle Dragon in the Basement", "Empty your mind, and Slay the Razor using your blade",
+    "Be shapeless, and let the Razor slay herself", "Free the Thorn", "Attempt to Slay the Thorn", "Attempt to leave the Thorn", "With the Wild, break your cage",
     "Free the wounded wild", "Slay the wounded Wild", "Embrace instinct with the Den", "With stubborn, retain your humanity and Slay the Den",
     "Disobey the voices in your head in the Den", "Lure the Den out, then slay her", "Lure the Den out, then flinch", "Lure the Den out, then starve to death", "Free the Den",
     "With Paranoid, slay the cage", "Lose your head with the Cage", "Free the Cage", "Tease the cage with freedom, then frop her", "Slay the Damsel, then burn with her",
@@ -104,7 +104,7 @@ function showTooltip(target, text) {//manage the tooltip
 
     const rect = target.getBoundingClientRect();
     tooltip.style.left = `${rect.right + 5}px`;
-    tooltip.style.top = `${rect.top}px`;
+    tooltip.style.top = `${rect.top + scrollY}px`;
 }
 
 function hideTooltip() {
@@ -118,14 +118,13 @@ function renderList(list, elementId) {//manages the visuals
     list.forEach(obj => {
         const div = document.createElement("div");
         div.className = "object";
-
         if (elementId === "list3") {//special display for winners
             div.innerText = (indexOfById(winners,obj) + 1) + ") " + obj.id;
         }
         else {
             div.innerText = obj.id;
         }
-
+        div.style = "background-color: #999999;";
         if (elementId === "list2") {//tooltip for eliminated
             
             div.addEventListener("mouseenter", () => {
@@ -377,25 +376,8 @@ function Import(){
     document.getElementById("userInputBtn").style.display = "none";
     document.getElementById("errorMessage").innerText = "";
     numers = input.charCodeAt(0) - 33;
+    setup(numers);
     numers = lists[numers].length;
-    //console.log(numers);
-    if (numers === princess.length) {
-        setup(0);
-    }
-    else {
-        if (numers === voice.length) {
-            setup(1);
-        }
-        else {
-            if (numers === ending.lenght) {
-                setup(2);
-            }
-            else {
-                document.getElementById("errorMessage").innerText = "Critical Error, save code is bad";
-                return;
-            }
-        }
-    }
     //console.log(input[0]);
     if (input.length === 1) {
         Ns = [];
@@ -425,7 +407,7 @@ function Import(){
     if (places.length !== numers) {
         /*console.log(places);
         console.log(numers);*/
-        document.getElementById("errorMessage").innerText = "Critical Error, save code is bad";
+        document.getElementById("errorMessage").innerText = "Critical Error, save code is bad. Error code 1";
         return;
     }
     lengths = [0,0,0];
@@ -433,7 +415,7 @@ function Import(){
         lengths[places[i]]++;
     }
     if (lengths[0] + lengths[1] + lengths[2] !== numers) {
-        document.getElementById("errorMessage").innerText = "Critical Error, save code is bad";
+        document.getElementById("errorMessage").innerText = "Critical Error, save code is bad. Error code 2";
         return;
     }
     elims = input.slice(0, Math.ceil(lengths[1] * Math.log(numers) / Math.log(94)));
@@ -445,7 +427,7 @@ function Import(){
     if (elims.length !== lengths[1]) {
         //console.log(elims);
         //console.log(lengths);
-        document.getElementById("errorMessage").innerText = "Critical Error, save code is bad";
+        document.getElementById("errorMessage").innerText = "Critical Error, save code is bad. Error code 3";
         return;
     }
     input = input.slice(Math.ceil(lengths[1] * Math.log(numers) / Math.log(94)));
@@ -459,7 +441,7 @@ function Import(){
         wins.push(0);
     }
     if (wins.length !== lengths[2]) {
-        document.getElementById("errorMessage").innerText = "Critical Error, save code is bad";
+        document.getElementById("errorMessage").innerText = "Critical Error, save code is bad. Error code 4";
         return;
     }
     let elim_index = 0;
@@ -608,6 +590,7 @@ function Export (){
         }
     }
     OPT += str;
+    document.getElementById("Estimation").innerText = "Save code:    " + OPT;
     alert("Here's a save code: \n\n" + OPT + "\n\nCopy it for later use.");
 }
 function list_to_string(lst, base) {
