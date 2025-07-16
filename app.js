@@ -57,6 +57,8 @@ function show_setup_buttons() {//show the buttons which call setup()
 }
 
 function setup(mode) {//A function which prepares the game to be played. Triggered by three buttons.
+    document.getElementById("listMessage").innerText = "Progress and Rankings (Hover to show more info)";
+    document.getElementById("theGrid").style.display = "inline-grid";
     Ns = [];//empty all of the lists
     eliminated = [];
     winners = [];
@@ -689,5 +691,8 @@ function first_setup() {
     document.getElementById("saveBtn").style.display = "none";
     document.getElementById("rescueBtn").style.display = "none";
     document.getElementById("cancelBtn").style.display = "none";
+    document.getElementById("listMessage").innerText = "";
     document.getElementById("duringMessage").innerText = "Choose 1 to rank:";
+    document.getElementById("theGrid").style.display = "none";
+    
 }
