@@ -59,7 +59,7 @@ function show_setup_buttons() {//show the buttons which call setup()
     document.getElementById("princesses").style.display = "inline-block";
     document.getElementById("voices").style.display = "inline-block";
     document.getElementById("endings").style.display = "inline-block";
-    document.getElementById("endings").style.display = "inline-block";
+    document.getElementById("endings2").style.display = "inline-block";
 }
 
 function setup(mode) {//A function which prepares the game to be played. Triggered by three buttons.
