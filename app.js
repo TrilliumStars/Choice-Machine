@@ -108,7 +108,7 @@ function showTooltip(target, text) {//manage the tooltip
     tooltip.style.display = "block";
 
     const rect = target.getBoundingClientRect();
-    tooltip.style.left = `${rect.right + 5}px`;
+    tooltip.style.left = `${rect.right + 5 + scrollX}px`;
     tooltip.style.top = `${rect.top + scrollY}px`;
 }
 
@@ -209,6 +209,7 @@ function updateChoiceButtons() {//update the buttons and clear any old messages
         document.getElementById("undoBtn").style.display = "none"; 
         document.getElementById("skipBtn").style.display = "none";
         document.getElementById("rescueBtn").style.display = "none";
+        hideBtn();
         document.getElementById("resetBtn").innerText = "Reset";
 
         const header = document.getElementById("endMessage");
@@ -216,6 +217,7 @@ function updateChoiceButtons() {//update the buttons and clear any old messages
         document.getElementById("successMessage").innerText = "";
         document.getElementById("duringMessage").innerText = "";
         document.getElementById("Estimation").innerText = "";
+        document.getElementById("listMessage").innerText = "";
         return;
     }
     currentChoices = getrandlists();//get the buttons
@@ -333,10 +335,8 @@ function ShowRescue() {
     return;
 }
 function rescue() {
-    document.getElementById("cancelBtn").style.display = "none";
     let input = document.getElementById("userInput2").value;
-    document.getElementById("userInput2").style.display = "none";
-    document.getElementById("userInputBtn2").style.display = "none";
+    hideBtn();
     let dummyStory = new story(input);
     let u = indexOfById(eliminated, dummyStory);
     if (u === -1) {
@@ -386,10 +386,7 @@ function hideBtn() {
 }
 function Import(){
     let input = document.getElementById("userInput").value;
-    document.getElementById("cancelBtn").style.display = "none";
-    //console.log(input);
-    document.getElementById("userInput").style.display = "none";
-    document.getElementById("userInputBtn").style.display = "none";
+    hideBtn()
     document.getElementById("errorMessage").innerText = "";
     numers = input.charCodeAt(0) - 33;
     setup(numers);
@@ -410,6 +407,7 @@ function Import(){
         document.getElementById("endMessage").innerText = "";
         updateChoiceButtons();
         renderAllLists();
+        document.getElementById("successMessage").innerText = "Succesfully Imported Save Code";
         return;
     }
     input = input.slice(1);
@@ -679,10 +677,7 @@ function first_setup() {
     tooltip.style.display = "none";
     document.body.appendChild(tooltip);
     //document.getElementById("list1").style.display = "none";
-    document.getElementById("userInput").style.display = "none";
-    document.getElementById("userInputBtn").style.display = "none";
-    document.getElementById("userInput2").style.display = "none";
-    document.getElementById("userInputBtn2").style.display = "none";
+    hideBtn();
     document.getElementById("choice1").style.display = "none";
     document.getElementById("choice2").style.display = "none";
     document.getElementById("undoBtn").style.display = "none";
