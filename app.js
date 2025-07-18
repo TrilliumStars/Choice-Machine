@@ -24,7 +24,7 @@ const princess = [
     "Drowned Grey", "Happily Ever After", "The Shifting Mound", "Base Princess"
 ];
 const voice = [
-    "Stubborn","Broken","Paranoid","Cold","Contrarian","Cheated","Opportunist","Hunted","Skeptic","Smitten","Hero"
+    "Stubborn","Broken","Paranoid","Cold","Contrarian","Cheated","Opportunist","Hunted","Skeptic","Smitten","Hero","Narrator"
 
 ]
 const ending = [
