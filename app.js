@@ -24,7 +24,7 @@ const princess = [
     "Drowned Grey", "Happily Ever After", "The Shifting Mound", "Base Princess"
 ];
 const voice = [
-    "Stubborn","Broken","Paranoid","Cold","Contrarian","Cheated","Opportunist","Hunted","Skeptic","Smitten","Hero","Narrator"
+    "Stubborn","Broken","Paranoid","Cold","Contrarian","Cheated","Opportunist","Hunted","Skeptic","Smitten","Hero"
 
 ]
 const ending = [
@@ -38,10 +38,14 @@ const ending = [
     "Be shapeless, and let the Razor slay herself", "Free the Thorn", "Attempt to Slay the Thorn", "Attempt to leave the Thorn", "With the Wild, break your cage",
     "Free the wounded wild", "Slay the wounded Wild", "Embrace instinct with the Den", "With stubborn, retain your humanity and Slay the Den",
     "Disobey the voices in your head in the Den", "Lure the Den out, then slay her", "Lure the Den out, then flinch", "Lure the Den out, then starve to death", "Free the Den",
-    "With Paranoid, slay the cage", "Lose your head with the Cage", "Free the Cage", "Tease the cage with freedom, then frop her", "Slay the Damsel, then burn with her",
-    "Slay the Prisoner, then Drown with her","Free the Happily Ever After","Slay the Happily Ever After","Sit forever with the Happily Ever After","The Good Ending"
+    "With Paranoid, slay the cage", "Lose your head with the Cage", "Free the Cage", "Tease the cage with freedom, then drop her", "Slay the Damsel, then burn with her",
+    "Slay the Prisoner, then Drown with her","Free the Happily Ever After","Slay the Happily Ever After","Sit forever with the Happily Ever After"
 ]
-lists = [princess, voice, ending];
+const ending2 = [
+    "The Good ending", "Oblivion", "Your new World", "A new and unending Dawn", "There are no endings",
+    "Reset the Construct","The Unknown Together"
+]
+lists = [princess, voice, ending,ending2];
 let DTA = princess;
 const tooltip = document.createElement("div");
 first_setup();
@@ -49,10 +53,12 @@ function hide_setup_buttons() {//hide the buttons which call setup()
     document.getElementById("princesses").style.display = "none";//make sure all buttons are okay.
     document.getElementById("voices").style.display = "none";
     document.getElementById("endings").style.display = "none";
+    document.getElementById("endings2").style.display = "none";
 }
 function show_setup_buttons() {//show the buttons which call setup()
     document.getElementById("princesses").style.display = "inline-block";
     document.getElementById("voices").style.display = "inline-block";
+    document.getElementById("endings").style.display = "inline-block";
     document.getElementById("endings").style.display = "inline-block";
 }
 
