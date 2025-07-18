@@ -8,8 +8,8 @@
     <title style="color: #FFFFFF;">Favorite Princesses</title>
     <link rel="icon" type="image/x-icon" href="cabin.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
 
         body {
@@ -30,9 +30,9 @@
             border-radius: 8px;
         }
 
-        .column h2 {
-            text-align: center;
-        }
+            .column h2 {
+                text-align: center;
+            }
 
         .object {
             padding: 6px 10px;
@@ -46,7 +46,6 @@
             /*background-color: #b7ff8b;*/
             /*background-color: #f17bea;*/
             background-color: #000000;
-
         }
     </style>
 </head>
@@ -67,6 +66,7 @@
         <button id="choice1" onclick="handleChoice(0)">Choice 1</button>
         <button id="choice2" onclick="handleChoice(1)">Choice 2</button>
     </div>
+
     <div id="option-buttons" style="margin-bottom: 20px;">
         <button id="undoBtn" onclick="handleUndo()">Undo</button>
         <button id="skipBtn" onclick="updateChoiceButtons()">Skip</button>
@@ -77,11 +77,13 @@
 
     </div>
 
-    <input id="userInput" type="text" placeholder="Paste your save code">
-    <button id="userInputBtn" onclick="Import()">Load</button>
-    <input id="userInput2" type="text" placeholder="What Item would you like to rescue?">
-    <button id="userInputBtn2" onclick="rescue()">Rescue</button>
-    <button id="cancelBtn" onclick="hideBtn()">Cancel</button>
+    <div id="input-buttons" style="margin-bottom: 20px;">
+        <input id="userInput" type="text" placeholder="Paste your save code">
+        <button id="userInputBtn" onclick="Import()">Load</button>
+        <input id="userInput2" type="text" placeholder="What Item would you like to rescue?">
+        <button id="userInputBtn2" onclick="rescue()">Rescue</button>
+        <button id="cancelBtn" onclick="hideBtn()">Cancel</button>
+    </div>
 
     <div id="errorMessage" style="color: red; font-weight: bold; margin-top: 10px;"></div>
     <h6 id="successMessage" style="text-align: left; color: #35e21a;"></h6>
