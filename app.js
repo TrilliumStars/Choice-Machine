@@ -63,6 +63,7 @@ function show_setup_buttons() {//show the buttons which call setup()
 }
 
 function setup(mode) {//A function which prepares the game to be played. Triggered by three buttons.
+    console.log(mode);
     document.getElementById("listMessage").innerText = "Progress and Rankings (Hover to show more info)";
     document.getElementById("theGrid").style.display = "inline-grid";
     Ns = [];//empty all of the lists
@@ -70,6 +71,7 @@ function setup(mode) {//A function which prepares the game to be played. Trigger
     winners = [];
     UNDO = [];
     DTA = lists[mode];
+    console.log(DTA);
     for (let i = 0; i < DTA.length; i++) {
         Ns.push(new story(DTA[i]));//fill Ns
     }
@@ -84,6 +86,7 @@ function setup(mode) {//A function which prepares the game to be played. Trigger
     //document.getElementById("list1").style.display = "inline-block";
     renderAllLists();
     updateChoiceButtons();
+    console.log("Success!");
 
 }
 function game() {//a modified reset() function which should return the game to its original state
