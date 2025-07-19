@@ -20,7 +20,7 @@ let winners = [];
 let UNDO = [];
 const princess = [
     "Adversary", "Tower", "Nightmare", "Spectre", "Stranger", "Razor", "Witch", "Beast", "Prisoner", "Damsel", "Eye of the Needle",
-    "Fury", "Apotheosis", "Moment of Clarity", "Wraith", "Dragon", "Full Razor", "Thorn", "Wild", "Den", "Cage", "Burned Grey",
+    "Fury", "Apotheosis", "Moment of Clarity", "Wraith", "Dragon", "Thorn", "Wild", "Den", "Cage", "Burned Grey",
     "Drowned Grey", "Happily Ever After", "The Shifting Mound", "Base Princess"
 ];
 const voice = [
