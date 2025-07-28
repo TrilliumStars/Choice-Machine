@@ -23,9 +23,10 @@ Coca Cola eventually makes it into the list, at fifth place. At this point, the 
 
 I have written up two versions of this code:
 app.js, index.html, and cabin.ico come together to form a website that can rank a few, preset lists.
+Choice_python.py is a simple python program that runs choices, but isn't very user-friendly
 PKMN.cpp, SMUSUM.cpp, and POKE.h come together to form a C++ project; when compiled it can rank any possible list much more freely, though with a limited UI.
 
-The C++ version came first. The JS version was created to make things easier to port. ReadMe.txt gives some more information into the C++ version.
+The python version came first. The C++ version expanded the project and made it user-friendly. The JS version was created to make things easier to port. ReadMe.txt gives some more information into the C++ version.
 
 
 
